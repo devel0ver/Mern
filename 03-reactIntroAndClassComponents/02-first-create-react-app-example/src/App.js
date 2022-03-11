@@ -2,6 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const topCompanies = [
+    {name: "", location: ""},
+    {name: "", location: ""},
+    {name: "", location: ""}
+  ]
   return (
     <div className="App">
       <h1>Top Dream Companies</h1>
