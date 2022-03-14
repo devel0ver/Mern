@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import HookForm from './components/HookForm';
+import HookFormOneObjectState from './components/HookFormOneObjectState';
 
 function App() {
   return (
     <div className="App">
-      <HookForm></HookForm>
+      <HookFormOneObjectState></HookFormOneObjectState>
     </div>
   );
 }
