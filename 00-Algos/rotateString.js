@@ -45,3 +45,24 @@ output: false
 
 
 */
+
+const isRotation = (str1, str2) => {
+    if (str1.length != str2.length){
+        return false
+    }
+    let i = 0
+    while (i < str2.length){
+        if (str1 == rotateString(str2, i)){
+            return true
+            
+        }
+        i++
+        
+    }
+
+    return false
+
+}
+
+console.log(isRotation("abcde", "abccde"))
+console.log(isRotation("good morning", "rninggood mo"))
