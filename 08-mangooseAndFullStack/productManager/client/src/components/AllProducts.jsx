@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {
+    Link
+} from 'react-router-dom';
 
 const AllProducts = () => {
 
@@ -13,21 +16,19 @@ const AllProducts = () => {
                 setProductList(res.data.results)
             }) 
             .catch(err=>{
-                console.log("error --> ". err)
+                console.log("error --> ", err)
             })
     }, [])
     
 
     return (
         <div>
+            <h1>All Products:</h1>
             {
                 productList.map((productObj)=>{
                     return(
-                        <div>
-                            <h3>Title: {productObj.title}</h3>
-                            <p>Price: ${productObj.price}</p>
-                            <p>Description: {productObj.description}</p>
-                            <hr />
+                        <div key={productObj._id}>
+                            <h3><Link to={`/api/products/${productObj._id}`}>{productObj.title}</Link></h3>
                         </div>
                     )
                 })
