@@ -5,15 +5,16 @@ module.exports.findAllProducts = (req, res)=>{
         .then(allProducts=>{
             res.json({results: allProducts})
         })
-        .catch(err => res.json({ message: 'Something went wrong' }))
+        .catch(err => res.json({ message: 'There is an error that occured', error: err }))
 }
 
 module.exports.createProduct = (req, res)=>{
+    console.log("This is what req.body returned --> ", req.body)
     Product.create(req.body)
         .then(createdProduct=>{
-            res.json(createdProduct)
+            res.json({ results: createdProduct})
         })
-        .catch(err => res.json({ message: 'Something went wrong' }))
+        .catch(err => res.json({ message: 'There is an error that occured', error: err }))
 }
 
 module.exports.getOneProduct = (req, res) => {
@@ -21,7 +22,7 @@ module.exports.getOneProduct = (req, res) => {
         .then(foundProduct=>{
             res.json({ results: foundProduct })
         })
-        .catch(err => res.json({ message: 'Something went wrong' }))
+        .catch(err => res.json({ message: 'There is an error that occured', error: err }))
 }
 
 module.exports.updateOneProduct = (req, res) => {
@@ -33,7 +34,7 @@ module.exports.updateOneProduct = (req, res) => {
         .then(updatedProduct=>{
             res.json({ results: updatedProduct })
         })
-        .catch(err => res.json({ message: 'Something went wrong' }))
+        .catch(err => res.json({ message: 'There is an error that occured', error: err }))
 }
 
 module.exports.deleteOneProduct = (req, res) => {
@@ -41,5 +42,5 @@ module.exports.deleteOneProduct = (req, res) => {
         .then(deletedProduct => {
             res.json({ results: deletedProduct })
         })
-        .catch(err => res.json({ message: 'Something went wrong' }))
+        .catch(err => res.json({ message: 'There is an error that occured', error: err }))
 }
