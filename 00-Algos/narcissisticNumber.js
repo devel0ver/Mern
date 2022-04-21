@@ -5,9 +5,15 @@ function narcissistic(value) {
     for(let i=0; i<value.toString().length; i++){
         calculate += value.toString()[i] ** num 
     }
-    return calculate == value ? true:false
+    return calculate == value
 
 }
+
+// function narcissistic( value ) {
+//     return ('' + value).split('').reduce(function(p, c){
+//         return p + Math.pow(c, ('' + value).length)
+//     }, 0) == value;
+// }
 
 console.log(narcissistic(1638))
 console.log(narcissistic(247))
