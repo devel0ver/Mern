@@ -90,3 +90,45 @@ let {
 } = inventory;
 
 console.log(id, mainItem, otherProps.location, spareItems.length); // Expected: W-99 Keyboard Shelf 5 2
+
+
+
+
+
+
+
+const user = {
+    id: 123,
+    isActive: true,
+    details: {
+        name: 'Jane Doe',
+        age: 30,
+        settings: {
+            isSubscriber: true,
+            theme: 'dark'
+        }
+    }
+};
+
+// YOUR GOAL:
+// Complete the function signature below so that it extracts the following:
+// 1. The 'id' (as 'userId') directly from the user object.
+// 2. The deeply nested 'name' from 'details'.
+// 3. The deeply nested 'isSubscriber' from 'details.settings'.
+// 4. Provide a default value of 'light' for 'theme' (even though it's present).
+
+
+function displayUserDetails({ id: userId, details: {name, settings: {isSubscriber, theme = 'light'} } }  ) {
+    console.log(`ID: ${userId}`);
+    console.log(`Name: ${name}`);
+    console.log(`Subscriber: ${isSubscriber}`);
+    console.log(`Theme: ${theme}`); // <-- Logs the destructured value ('dark') or the default ('light') if it were missin
+}
+
+displayUserDetails(user);
+
+// Expected Output:
+// ID: 123
+// Name: Jane Doe
+// Subscriber: true
+// Theme: dark (The default 'light' is correctly overridden by the value in the object)
